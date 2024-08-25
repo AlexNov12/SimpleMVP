@@ -9,17 +9,24 @@ import UIKit
 protocol ModuleBetaRouterProtocol {
     func showSuccess()
     func showError()
+    func showConfirmation()
+    
+    // Модуль Beta показывает модуль Gamma и передает в него параметры.
+    func openModuleGamma(with param: String)
 }
 
 final class ModuleBetaRouter: ModuleBetaRouterProtocol {
+    
+    private let alertFactory: AlertModuleFactory
+    private let factory: ModuleGammaFactory
         
     weak var root: UIViewController?
     
-    private let alertFactory: AlertModuleFactory
-    
-    init(alertFactory: AlertModuleFactory) {
+    init(alertFactory: AlertModuleFactory, factory: ModuleGammaFactory) {
         self.alertFactory = alertFactory
+        self.factory = factory
     }
+    
     
     func setRootViewController(root: UIViewController) {
         self.root = root
@@ -41,5 +48,31 @@ final class ModuleBetaRouter: ModuleBetaRouterProtocol {
         )
         
         root?.present(viewController, animated: true)
+    }
+    
+    
+    // Доделать
+    func showConfirmation() {
+        let viewController = alertFactory.newMethod(
+            title: "SimpleMVP",
+            message: "Save changes?",
+            nameButtonOK: "Ok",
+            nameButtonCancel: "Cancel",
+            handlerOK: alertFactory.make(title: "Ok", message: <#T##String#>),
+            handlerCancel: nil
+        )
+    }
+    
+    // Модуль Alpha показывает модуль Beta и передает в него параметры.
+    func openModuleGamma(with param: String) {
+        
+        let context = ModuleGammaFactory.Context(
+            someParam: param,
+            someValue: 100
+        )
+        
+        let viewController = factory.make(context: context)
+        
+        root?.navigationController?.pushViewController(viewController, animated: true)
     }
 }

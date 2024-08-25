@@ -1,17 +1,18 @@
 //
-//  ModuleBetaView.swift
+//  ModuleGammaView.swift
 //  SimpleMVP
 //
-//  Created by Dmitriy Mirovodin on 18.02.2024.
+//  Created by Александр Новиков on 25.08.2024.
+//
 
 import UIKit
 
-final class ModuleBetaView: UIView {
+final class ModuleGammaView: UIView {
     
     struct Model {
         let text: String
     }
-
+    
     private lazy var label: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 25)
@@ -26,27 +27,20 @@ final class ModuleBetaView: UIView {
         return button
     }()
     
-    private lazy var buttonTwo: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("To module Gamma", for: .normal)
-        button.addTarget(self, action: #selector(onTappedTwo), for: .touchUpInside)
-        return button
-    }()
+    private let presenter: ModuleGammaPresenterProtocol
     
-    private let presenter: ModuleBetaPresenterProtocol
-
-    init(presenter: ModuleBetaPresenterProtocol) {
+    init(presenter: ModuleGammaPresenterProtocol) {
         self.presenter = presenter
         super.init(frame: .zero)
         commonInit()
     }
-
+    
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(model: ModuleBetaView.Model) {
+    func update(model: ModuleGammaView.Model) {
         label.text = model.text
     }
     
@@ -67,7 +61,7 @@ final class ModuleBetaView: UIView {
     }
 }
 
-private extension ModuleBetaView {
+private extension ModuleGammaView {
     
     func commonInit() {
         backgroundColor = .white
@@ -78,13 +72,11 @@ private extension ModuleBetaView {
     func setupSubviews() {
         addSubview(label)
         addSubview(button)
-        addSubview(buttonTwo)
     }
-
+    
     func setupConstraints() {
         label.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
-        buttonTwo.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -94,24 +86,11 @@ private extension ModuleBetaView {
             button.widthAnchor.constraint(equalToConstant: 150.0),
             button.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             button.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20.0),
-            
-            buttonTwo.heightAnchor.constraint(equalToConstant: 45.0),
-            buttonTwo.widthAnchor.constraint(equalToConstant: 150.0),
-            buttonTwo.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            buttonTwo.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -60.0),
         ])
     }
-    
     
     @objc
     func onTapped() {
         presenter.requestSave()
-    }    
-    
-    @objc
-    func onTappedTwo() {
-        presenter.tapButton()
     }
-    
 }
-

@@ -1,30 +1,31 @@
 //
-//  ModuleAlphaViewController.swift
+//  ModuleGammaViewController.swift
 //  SimpleMVP
 //
-//  Created by Dmitriy Mirovodin on 18.02.2024.
+//  Created by Александр Новиков on 25.08.2024.
+//
 
 import UIKit
 
-protocol ModuleAlphaViewProtocol: AnyObject {
+protocol ModuleGammaViewProtocol: AnyObject {
     
-    func update(model: ModuleAlphaView.Model)
+    func update(model: ModuleGammaView.Model)
     func showError()
     func showEmpty()
     func startLoader()
     func stopLoader()
 }
 
-final class ModuleAlphaViewController: UIViewController {
+final class ModuleGammaViewController: UIViewController {
     
-    private lazy var customView = ModuleAlphaView(presenter: presenter)
-    private let presenter: ModuleAlphaPresenterProtocol
+    private lazy var customView = ModuleGammaView(presenter: presenter)
+    private let presenter: ModuleGammaPresenterProtocol
     
-    init(presenter: ModuleAlphaPresenterProtocol) {
+    init(presenter: ModuleGammaPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,24 +34,29 @@ final class ModuleAlphaViewController: UIViewController {
     override func loadView() {
         view = customView
     }
-
+    
     override func viewDidLoad() {
         title = presenter.title
         presenter.viewDidLoad()
-    }    
+    }
+    
+    deinit {
+        print(">>> ModuleGammaViewController is deinit")
+    }
 }
 
-extension ModuleAlphaViewController: ModuleAlphaViewProtocol {
+extension ModuleGammaViewController: ModuleGammaViewProtocol {
+    
+    func update(model: ModuleGammaView.Model) {
+        customView.update(model: model)
+    }
+    
     func showError() {
         customView.showError()
     }
     
     func showEmpty() {
         customView.showEmpty()
-    }
-        
-    func update(model: ModuleAlphaView.Model) {
-        customView.update(model: model)
     }
     
     func startLoader() {

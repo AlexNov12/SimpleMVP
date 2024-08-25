@@ -11,6 +11,7 @@ protocol ModuleBetaPresenterProtocol {
     
     func viewDidLoad()
     func requestSave()
+    func tapButton()
 }
 
 final class ModuleBetaPresenter: ModuleBetaPresenterProtocol {
@@ -58,5 +59,10 @@ final class ModuleBetaPresenter: ModuleBetaPresenterProtocol {
                 router.showError()
             }
         }
+    }
+    
+    func tapButton() {
+        // открыть модуль Gamma и передать туда параметры
+        router.openModuleGamma(with: "params from module Beta")
     }
 }

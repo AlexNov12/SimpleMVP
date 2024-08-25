@@ -9,6 +9,39 @@ import UIKit
 
 final class AlertModuleFactory {
     
+    func newMethod(
+        title: String,
+        message: String,
+        nameButtonOK: String,
+        nameButtonCancel: String,
+        handlerOK: UIViewController,
+        handlerCancel: (()->Void)?
+    ) -> UIViewController {
+        let saveChangesAlertViewController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        let action = UIAlertAction(
+            title: nameButtonOK,
+            style: .default,
+            handler: nil
+        )
+        
+        let cancel = UIAlertAction(
+            title: nameButtonCancel,
+            style: .cancel,
+            handler: nil
+        )
+        
+        saveChangesAlertViewController.addAction(action)
+        saveChangesAlertViewController.addAction(cancel)
+        
+        return saveChangesAlertViewController
+    }
+    
+    
     func make(title: String, message: String) -> UIViewController {
         let alertViewController = UIAlertController(
             title: title,
@@ -21,6 +54,7 @@ final class AlertModuleFactory {
             style: .default,
             handler: nil
         )
+        
         
         alertViewController.addAction(action)
         

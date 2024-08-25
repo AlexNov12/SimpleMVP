@@ -23,6 +23,11 @@
 		8E7D7F102B822718004D13D3 /* AlertModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D7F0F2B822718004D13D3 /* AlertModuleFactory.swift */; };
 		8E7D7F122B822778004D13D3 /* ModuleAlphaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D7F112B822778004D13D3 /* ModuleAlphaPresenter.swift */; };
 		8E7D7F142B8227CD004D13D3 /* ModuleBetaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7D7F132B8227CD004D13D3 /* ModuleBetaPresenter.swift */; };
+		B35F05BE2C7B1084008420BA /* ModuleGammaFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35F05BD2C7B1084008420BA /* ModuleGammaFactory.swift */; };
+		B35F05C02C7B184C008420BA /* ModuleGammaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35F05BF2C7B184C008420BA /* ModuleGammaViewController.swift */; };
+		B35F05C22C7B185C008420BA /* ModuleGammaPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35F05C12C7B185C008420BA /* ModuleGammaPresenter.swift */; };
+		B35F05C42C7B186D008420BA /* ModuleGammaRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35F05C32C7B186D008420BA /* ModuleGammaRouter.swift */; };
+		B35F05C62C7B1880008420BA /* ModuleGammaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35F05C52C7B1880008420BA /* ModuleGammaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		8E7D7F0F2B822718004D13D3 /* AlertModuleFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertModuleFactory.swift; sourceTree = "<group>"; };
 		8E7D7F112B822778004D13D3 /* ModuleAlphaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleAlphaPresenter.swift; sourceTree = "<group>"; };
 		8E7D7F132B8227CD004D13D3 /* ModuleBetaPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModuleBetaPresenter.swift; sourceTree = "<group>"; };
+		B35F05BD2C7B1084008420BA /* ModuleGammaFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGammaFactory.swift; sourceTree = "<group>"; };
+		B35F05BF2C7B184C008420BA /* ModuleGammaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGammaViewController.swift; sourceTree = "<group>"; };
+		B35F05C12C7B185C008420BA /* ModuleGammaPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGammaPresenter.swift; sourceTree = "<group>"; };
+		B35F05C32C7B186D008420BA /* ModuleGammaRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGammaRouter.swift; sourceTree = "<group>"; };
+		B35F05C52C7B1880008420BA /* ModuleGammaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleGammaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,7 @@
 				8E7D7EF72B81F37B004D13D3 /* Services */,
 				8E7D7EFC2B81F3FC004D13D3 /* ModuleAlpha */,
 				8E7D7EFD2B81F40B004D13D3 /* ModuleBeta */,
+				B35F05BC2C79D23A008420BA /* ModuleGamma */,
 				8E7D7EE32B81F2A9004D13D3 /* AppDelegate.swift */,
 				8E7D7EEC2B81F2A9004D13D3 /* Assets.xcassets */,
 				8E7D7EEE2B81F2A9004D13D3 /* LaunchScreen.storyboard */,
@@ -113,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				8E7D7F132B8227CD004D13D3 /* ModuleBetaPresenter.swift */,
-				8E7D7F0C2B8226FE004D13D3 /* ModuleBetaFactory.swift */,
 				8E7D7F0A2B822631004D13D3 /* ModuleBetaRouter.swift */,
+				8E7D7F0C2B8226FE004D13D3 /* ModuleBetaFactory.swift */,
 				8E7D7F022B81F467004D13D3 /* ModuleBetaView.swift */,
 				8E7D7F032B81F467004D13D3 /* ModuleBetaViewController.swift */,
 			);
@@ -127,6 +138,18 @@
 				8E7D7F0F2B822718004D13D3 /* AlertModuleFactory.swift */,
 			);
 			path = AlertModule;
+			sourceTree = "<group>";
+		};
+		B35F05BC2C79D23A008420BA /* ModuleGamma */ = {
+			isa = PBXGroup;
+			children = (
+				B35F05C12C7B185C008420BA /* ModuleGammaPresenter.swift */,
+				B35F05C32C7B186D008420BA /* ModuleGammaRouter.swift */,
+				B35F05BD2C7B1084008420BA /* ModuleGammaFactory.swift */,
+				B35F05C52C7B1880008420BA /* ModuleGammaView.swift */,
+				B35F05BF2C7B184C008420BA /* ModuleGammaViewController.swift */,
+			);
+			path = ModuleGamma;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,17 +223,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E7D7F122B822778004D13D3 /* ModuleAlphaPresenter.swift in Sources */,
+				B35F05BE2C7B1084008420BA /* ModuleGammaFactory.swift in Sources */,
+				B35F05C42C7B186D008420BA /* ModuleGammaRouter.swift in Sources */,
+				B35F05C02C7B184C008420BA /* ModuleGammaViewController.swift in Sources */,
 				8E7D7F042B81F467004D13D3 /* ModuleBetaView.swift in Sources */,
 				8E7D7F052B81F467004D13D3 /* ModuleBetaViewController.swift in Sources */,
 				8E7D7F0D2B8226FE004D13D3 /* ModuleBetaFactory.swift in Sources */,
 				8E7D7F002B81F438004D13D3 /* ModuleAlphaViewController.swift in Sources */,
 				8E7D7EE42B81F2A9004D13D3 /* AppDelegate.swift in Sources */,
 				8E7D7F0B2B822631004D13D3 /* ModuleBetaRouter.swift in Sources */,
+				B35F05C62C7B1880008420BA /* ModuleGammaView.swift in Sources */,
 				8E7D7F012B81F438004D13D3 /* ModuleAlphaView.swift in Sources */,
 				8E7D7F072B81F47A004D13D3 /* ModuleAlphaFactory.swift in Sources */,
 				8E7D7EFB2B81F37B004D13D3 /* DataBaseService.swift in Sources */,
 				8E7D7F102B822718004D13D3 /* AlertModuleFactory.swift in Sources */,
 				8E7D7F092B82260F004D13D3 /* ModuleAlphaRouter.swift in Sources */,
+				B35F05C22C7B185C008420BA /* ModuleGammaPresenter.swift in Sources */,
 				8E7D7F142B8227CD004D13D3 /* ModuleBetaPresenter.swift in Sources */,
 				8E7D7EFA2B81F37B004D13D3 /* RestService.swift in Sources */,
 			);
@@ -363,7 +391,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmitriy.mi.SimpleMVP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmitriy.mi.SimpleMVP1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -391,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmitriy.mi.SimpleMVP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dmitriy.mi.SimpleMVP1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
