@@ -51,15 +51,19 @@ final class ModuleBetaRouter: ModuleBetaRouterProtocol {
     }
     
     
-    // Доделать
+    // ???
     func showConfirmation() {
         let viewController = alertFactory.newMethod(
             title: "SimpleMVP",
             message: "Save changes?",
             nameButtonOK: "Ok",
             nameButtonCancel: "Cancel",
-            handlerOK: alertFactory.make(title: "Ok", message: <#T##String#>),
-            handlerCancel: nil
+            handlerOK: { [weak self] _ in
+                self?.showSuccess()
+            },
+            handlerCancel: { [weak self] _ in
+                self?.showError()
+            }
         )
     }
     
