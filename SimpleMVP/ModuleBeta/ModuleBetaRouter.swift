@@ -65,6 +65,8 @@ final class ModuleBetaRouter: ModuleBetaRouterProtocol {
                 self?.showError()
             }
         )
+        root?.present(viewController, animated: true)
+        
     }
     
     // Модуль Alpha показывает модуль Beta и передает в него параметры.

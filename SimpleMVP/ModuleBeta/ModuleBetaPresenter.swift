@@ -12,6 +12,7 @@ protocol ModuleBetaPresenterProtocol {
     func viewDidLoad()
     func requestSave()
     func tapButton()
+    func saveChanges()
 }
 
 final class ModuleBetaPresenter: ModuleBetaPresenterProtocol {
@@ -59,6 +60,10 @@ final class ModuleBetaPresenter: ModuleBetaPresenterProtocol {
                 router.showError()
             }
         }
+    }
+    
+    func saveChanges() {
+        router.showConfirmation()
     }
     
     func tapButton() {
